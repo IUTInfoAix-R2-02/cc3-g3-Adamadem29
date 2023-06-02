@@ -1,32 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-
-<HBox id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
-    <Pane prefHeight="400.0" prefWidth="400.0" >
-        <Circle centerX="200.0" centerY="200.0" radius="200.0" styleClass="toile"/>
-        <Circle centerX="200.0" centerY="200.0" radius="150.0" styleClass="toile"/>
-        <Circle centerX="200.0" centerY="200.0" radius="100.0" styleClass="toile"/>
-        <Circle centerX="200.0" centerY="200.0" radius="50.0" styleClass="toile"/>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<HBox id="scene" prefHeight="420.0" prefWidth="650.0" spacing="10.0" stylesheets="@style.css" fx:controller="fr.amu.iut.cc3.ToileController" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Pane prefHeight="400.0" prefWidth="400.0">
+        <Circle centerX="200.0" centerY="210.0" radius="200.0" styleClass="toile" />
+        <Circle centerX="200.0" centerY="210.0" radius="150.0" styleClass="toile" />
+        <Circle centerX="200.0" centerY="210.0" radius="100.0" styleClass="toile" />
+        <Circle centerX="200.0" centerY="210.0" radius="50.0" styleClass="toile" />
         <Group layoutX="195.0" layoutY="195.0">
-            <Line endX="10.0" endY="5.0" startY="5.0" styleClass="croix"/>
-            <Line endX="5.0" endY="10.0" startX="5.0" styleClass="croix"/>
+            <Line endX="10.0" endY="5.0" startY="5.0" styleClass="croix" />
+            <Line endX="5.0" endY="10.0" startX="5.0" styleClass="croix" />
         </Group>
-        <Line startX="200.0" startY="0" endX="200" endY="400.0" styleClass="toile"/>
-        <Line endX="200.0" endY="400.0" rotate="60.0" startX="200.0" styleClass="toile"/>
-        <Line endX="200.0" endY="400.0" rotate="120.0" startX="200.0" styleClass="toile"/>
-        <Text x="170" y="0" text="Compétence 1" />
-        <Text x="300" y="100" text="Compétence 2" />
-        <Text x="300" y="300" text="Compétence 3" />
-        <Text x="170" y="410" text="Compétence 4" />
-        <Text x="26" y="300" text="Compétence 5" />
-        <Text x="26" y="99" text="Compétence 6" />
-        <Pane fx:id="toile" styleClass="toile"/>
+        <Line endX="200" endY="410.0" startX="200.0" startY="10.0" styleClass="toile" />
+        <Line endX="200.0" endY="410.0" rotate="60.0" startX="200.0" startY="10.0" styleClass="toile" />
+        <Line endX="200.0" endY="410.0" rotate="120.0" startX="200.0" startY="10.0" styleClass="toile" />
+        <Text text="Compétence 1" x="170" y="10.0" />
+        <Text text="Compétence 2" x="300" y="100" />
+        <Text text="Compétence 3" x="300" y="300" />
+        <Text text="Compétence 4" x="170" y="400.0" />
+        <Text text="Compétence 5" x="26" y="300" />
+        <Text text="Compétence 6" x="26" y="99" />
+        <Circle fx:id="cpt1Circle" visible="false" radius="5"/>
+        <Circle fx:id="cpt2Circle" visible="false" radius="5"/>
+        <Circle fx:id="cpt3Circle" visible="false" radius="5"/>
+        <Circle fx:id="cpt4Circle" visible="false" radius="5"/>
+        <Circle fx:id="cpt5Circle" visible="false" radius="5"/>
+        <Circle fx:id="cpt6Circle" visible="false" radius="5"/>
+        <Pane fx:id="toile" styleClass="toile" />
     </Pane>
+    <VBox spacing="10">
+    <GridPane fx:id="rightPane"
+              hgap="10" vgap="10">
+        <padding><Insets top="60" right="10" left="10" bottom="40"/></padding>
+
+        <!-- Label des champs de saisi -->
+        <Label text="Compétence 1 - Réaliser" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="0" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+        <Label text="Compétence 2 - Optimiser" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="1" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+        <Label text="Compétence 3 - Administrer" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="2" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+        <Label text="Compétence 4 - Gérer" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="3" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+        <Label text="Compétence 5 - Conduire" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="4" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+        <Label text="Compétence 6 - Collaborer" style="-fx-font-size: 10" GridPane.columnIndex="0"
+               GridPane.rowIndex="5" >
+            <padding><Insets bottom="5" right="5"/></padding>
+        </Label>
+
+        <!-- Champs de saisi des données du graphique -->
+        <TextField fx:id="cpt1Field" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+        <TextField fx:id="cpt2Field" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+        <TextField fx:id="cpt3Field" GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+        <TextField fx:id="cpt4Field" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+        <TextField fx:id="cpt5Field" GridPane.columnIndex="1" GridPane.rowIndex="4" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+        <TextField fx:id="cpt6Field" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="50" onAction="#handleOnActionField">
+            <padding><Insets bottom="5"/></padding>
+        </TextField>
+    </GridPane>
+        <!-- Boutons -->
+        <Label fx:id="errorLbl1" visible="true" style="-fx-text-fill: red; -fx-font-size: 10">
+                Erreur de saisie :
+        </Label>
+        <Label fx:id="errorLbl2" visible="true" style="-fx-text-fill: red; -fx-font-size: 10">Les valeurs doivent être entre 0 et 20</Label>
+        <HBox spacing="20">
+            <Button fx:id="btnTracer" text="Tracer" >
+            </Button>
+            <Button fx:id="btnVider" text="Vider">
+            </Button>
+        </HBox>
+    </VBox>
 </HBox>
