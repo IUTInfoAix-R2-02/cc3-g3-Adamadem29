@@ -127,22 +127,26 @@ public class ToileController implements Initializable {
 
     @FXML
     public void handleOnActionField(ActionEvent event){
-        sourceOfEvent = (TextField) event.getSource();
-        int axe = GridPane.getRowIndex(sourceOfEvent)+1;
-        double value = Integer.parseInt(sourceOfEvent.getText());
-        if (value>20 || value<0){
-            errorLbl1.setVisible(true);
-            errorLbl2.setVisible(true);
-            return;
+        for (TextField champ : lesTextField.getItems()){
+            if (champ.getText()==""){
+                continue;
+            }
+            int axe = GridPane.getRowIndex(champ)+1;
+            double value = Integer.parseInt(champ.getText());
+            if (value>20 || value<0){
+                errorLbl1.setVisible(true);
+                errorLbl2.setVisible(true);
+                return;
+            }
+            errorLbl1.setVisible(false);
+            errorLbl2.setVisible(false);
+            int centerX = getXRadarChart(value, axe);
+            int centerY = getYRadarChart(value, axe);
+            Circle leCercle = lesCercles.getItems().get(axe-1);
+            leCercle.setCenterX(centerX);
+            leCercle.setCenterY(centerY);
+            leCercle.setVisible(true);
         }
-        errorLbl1.setVisible(false);
-        errorLbl2.setVisible(false);
-        int centerX = getXRadarChart(value, axe);
-        int centerY = getYRadarChart(value, axe);
-        Circle leCercle = lesCercles.getItems().get(axe-1);
-        leCercle.setCenterX(centerX);
-        leCercle.setCenterY(centerY);
-        leCercle.setVisible(true);
     }
 
     @FXML
@@ -159,12 +163,10 @@ public class ToileController implements Initializable {
 
     @FXML
     public void handleTracerButtonClick(ActionEvent event){
+        handleOnActionField(event);
         Line laLigne;
         Circle lePoint1;
         Circle lePoint2;
-        for (TextField champ : lesTextField.getItems()){
-            champ.setOnAction(handleOnActionField(event));
-        }
         for (int i=0; i<lesLignes.getItems().size(); ++i){
             laLigne = lesLignes.getItems().get(i);
             lePoint1 = lesCercles.getItems().get(i);
