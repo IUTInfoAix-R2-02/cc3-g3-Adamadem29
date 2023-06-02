@@ -34,6 +34,12 @@
         <Circle fx:id="cpt4Circle" visible="false" radius="5"/>
         <Circle fx:id="cpt5Circle" visible="false" radius="5"/>
         <Circle fx:id="cpt6Circle" visible="false" radius="5"/>
+        <Line fx:id="cpt1Line" visible="false"/>
+        <Line fx:id="cpt2Line" visible="false"/>
+        <Line fx:id="cpt3Line" visible="false"/>
+        <Line fx:id="cpt4Line" visible="false"/>
+        <Line fx:id="cpt5Line" visible="false"/>
+        <Line fx:id="cpt6Line" visible="false"/>
         <Pane fx:id="toile" styleClass="toile" />
     </Pane>
     <VBox spacing="10">
@@ -88,14 +94,14 @@
         </TextField>
     </GridPane>
         <!-- Boutons -->
-        <Label fx:id="errorLbl1" visible="true" style="-fx-text-fill: red; -fx-font-size: 10">
+        <Label fx:id="errorLbl1" visible="false" style="-fx-text-fill: red; -fx-font-size: 10">
                 Erreur de saisie :
         </Label>
-        <Label fx:id="errorLbl2" visible="true" style="-fx-text-fill: red; -fx-font-size: 10">Les valeurs doivent être entre 0 et 20</Label>
+        <Label fx:id="errorLbl2" visible="false" style="-fx-text-fill: red; -fx-font-size: 10">Les valeurs doivent être entre 0 et 20</Label>
         <HBox spacing="20">
-            <Button fx:id="btnTracer" text="Tracer" >
+            <Button fx:id="btnTracer" text="Tracer" onAction="#handleTracerButtonClick">
             </Button>
-            <Button fx:id="btnVider" text="Vider">
+            <Button fx:id="btnVider" text="Vider" onAction="#handleViderButtonClick">
             </Button>
         </HBox>
     </VBox>
