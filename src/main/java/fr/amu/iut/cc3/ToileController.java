@@ -128,7 +128,7 @@ public class ToileController implements Initializable {
     @FXML
     public void handleOnActionField(ActionEvent event){
         for (TextField champ : lesTextField.getItems()){
-            if (champ.getText()==""){
+            if (champ.getText().isEmpty()){
                 continue;
             }
             int axe = GridPane.getRowIndex(champ)+1;
